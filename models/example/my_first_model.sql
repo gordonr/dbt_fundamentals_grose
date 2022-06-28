@@ -9,7 +9,7 @@
 
 select 
     1 as id,
-    1 / 2 as my_ratio
+    1 / 4 as my_ratio
 
 /*
 union all
