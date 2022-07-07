@@ -2,7 +2,7 @@ version: 2
 
 exposures:
   
-  - name: jaffle_customer_metrics
+  - name: jaffle_customer_dashboard
     type: dashboard
     maturity: high
     url: https://bi.tool/dashboards/1
