@@ -1,3 +1,11 @@
+-- materialize as a table and tag as being finance-related
+{{
+    config(
+        materialized = 'table',
+        tags=['finance']
+    )
+}}
+
 with orders as (
 
     select * from {{ ref('stg_orders') }}
