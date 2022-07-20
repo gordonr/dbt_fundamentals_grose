@@ -26,17 +26,12 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 #on-run-start:
 #  - "alter warehouse transforming set warehouse_size=small;"
-# - '{{create_udfs()}}' # comment / uncomment this line to build UDFs called in the create_udfs macro
 
 on-run-end:
    - "{% for schema in schemas %} grant usage on schema {{ schema }} to reporter; {% endfor %}"
-#  - "alter warehouse transforming set warehouse_size=xsmall;"
-
 
 vars:
   start_date: '1999-01-01'
-
-
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
