@@ -1,8 +1,12 @@
 -- materialize as a table and tag as being finance-related
+-- grant select to reporter role after model is built
 {{
     config(
         materialized = 'table',
-        tags=['finance']
+        tags=['finance'],
+        post_hook=[
+            "grant select on {{ this }} to role reporter"
+        ]
     )
 }}
 
@@ -24,3 +28,4 @@ from
     orders o inner join 
         payments p on o.order_id = p.order_id
 group by o.customer_id
+
