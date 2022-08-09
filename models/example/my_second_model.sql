@@ -10,7 +10,7 @@
 select 
     id,
     sale_amount,
-    round(my_ratio * 100, 2) as my_percent,
+    my_ratio,
     current_timestamp as _loaded_at
 from 
     {{ ref('my_first_model') }} 
