@@ -13,4 +13,4 @@ select
     my_ratio,
     current_timestamp as _loaded_at
 from 
-    {{ ref('my_first_model') }} 
+    {{ ref('my_first_dbt_model') }} 
