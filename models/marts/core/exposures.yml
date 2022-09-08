@@ -5,9 +5,9 @@ exposures:
   - name: jaffle_customer_dashboard
     type: dashboard
     maturity: high
-    url: https://bi.tool/dashboards/1
+    url: https://10ax.online.tableau.com/site/merrycherrydev164064/views/dbtDemo/Customers
     description: >
-      Did someone say "exponential growth"?
+      Did someone say "great growth"?
     
     depends_on:
       - ref('dim_customers')
