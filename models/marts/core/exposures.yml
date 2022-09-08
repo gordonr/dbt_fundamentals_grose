@@ -13,5 +13,5 @@ exposures:
       - ref('dim_customers')
       
     owner:
-      name: Claire from Data
+      name: Flash Gordon
       email: data@jaffleshop.com
