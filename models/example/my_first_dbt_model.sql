@@ -1,6 +1,6 @@
 
 select 
-    null as id,
+    1 as id,
     2 as sale_amount,
     3 / 4 as my_ratio
 
