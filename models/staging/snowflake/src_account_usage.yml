@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: snowflake_meta
+    schema: account_usage
+    database: snowflake
+    tables:
+      - name: query_history
