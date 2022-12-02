@@ -32,6 +32,15 @@ on-run-end:
 
 vars:
   start_date: '1999-01-01'
+  # which model or models should be built?
+  # values can be all, sales, upsales, etc.
+  # you can assign a value at runtime, as in
+  # dbt run --vars '{"key": "value"}'
+  # you can also assign a value in a model, as in
+  #
+  # {% set last_audit_id = get_last_audit_id() %}
+  # select * from {{ ref('some_table') }}
+  izzi_model_selector: 'all'
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
