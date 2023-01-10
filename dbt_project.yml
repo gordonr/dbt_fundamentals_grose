@@ -31,6 +31,7 @@ on-run-end:
    - "{% for schema in schemas %} grant usage on schema {{ schema }} to reporter; {% endfor %}"
 
 vars:
+  materialization_type: 'view'
   start_date: '1999-01-01'
   # which model or models should be built?
   # values can be all, sales, upsales, etc.
