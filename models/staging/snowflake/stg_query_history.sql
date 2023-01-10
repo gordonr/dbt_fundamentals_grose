@@ -1,9 +1,23 @@
+{% if flags.FULL_REFRESH %}
+{{ log("we are running a full refresh.") }}
 {{
     config(
         materialized='incremental',
-        unique_key = 'QUERY_ID'
+        unique_key = 'QUERY_ID',
+        snowflake_warehouse='ZERO_DBT_TRANSFORMING'
     )
 }}
+{% else %}
+{{ log("we are NOT running a full refresh.") }}
+{{
+    config(
+        materialized='incremental',
+        unique_key = 'QUERY_ID',
+        snowflake_warehouse='TRANSFORMING'
+    )
+}}
+{% endif %}
+
 
 select
     *
