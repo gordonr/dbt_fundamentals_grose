@@ -1,7 +1,9 @@
 def model(dbt, session):
 
+    dbt.config(materialized="table")
+
     # get upstream data
-    orders = dbt.ref("fct_orders")
+    fct_orders = dbt.ref("fct_orders")
 
     # describe the data
     described = fct_orders.describe()

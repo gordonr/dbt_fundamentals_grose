@@ -5,23 +5,25 @@ import numpy as np
 from prophet import Prophet
 
 #Import dbt library
-import dbt
+#import dbt
 
 def model(dbt, session):
 
     dbt.config(materialized="table", packages=['Prophet', 'pandas', 'numpy'])
     # dbt.config(materialized="table")
     # DataFrame representing the database table.
-    upstream_model = dbt.ref("fct_orders")
+    #upstream_model = dbt.ref("fct_orders")
 
     # Create a dataframe from the upstream model
-    df = pd.DataFrame(upstream_model.fetch(session))
+    #df = pd.DataFrame(upstream_model.fetch(session))
+    df = upstream_model = dbt.ref("fct_orders").toPandas()
 
     # Create a new column for the month of the order_date
-    df['order_month'] = df['ORDER_DATE'].dt.month
+    #df['order_month'] = pd.to_datetime(df['ORDER_DATE'], format='%Y-%m-%d').dt.month
+    df['order_month'] = pd.to_datetime(df['ORDER_DATE']).dt.month
 
     # Create a dataframe with the sum of the amount for each month
-    df_sum = df.groupby('order_month')['AMOUNT'].sum().reset_index()
+    df_sum = df.groupby('order_month')['PAYMENT_AMOUNT'].sum().reset_index()
 
     # Rename columns
     df_sum.columns = ['ds', 'y']
