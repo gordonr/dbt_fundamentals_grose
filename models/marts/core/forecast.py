@@ -16,12 +16,23 @@ def model(dbt, session):
 
     # Create a dataframe from the upstream model
     #df = pd.DataFrame(upstream_model.fetch(session))
-    df = upstream_model = dbt.ref("fct_orders").toPandas()
+    df = dbt.ref("fct_orders").toPandas()
 
     # Create a new column for the month of the order_date
+    #df['order_month'] = df['ORDER_DATE'].dt.month
     #df['order_month'] = pd.to_datetime(df['ORDER_DATE'], format='%Y-%m-%d').dt.month
-    df['order_month'] = pd.to_datetime(df['ORDER_DATE']).dt.month
+    #df['order_month'] = pd.to_datetime(df['ORDER_DATE'], errors='coerce', format='%Y-%m-%d').dt.month
+    df['order_month'] = pd.to_datetime(df['ORDER_DATE'], errors='ignore', infer_datetime_format=True, yearfirst=True).dt.month
+    
+    df['order_month'] = pd.to_datetime(df['ORDER_DATE'])
+    df['order_month'] = df['order_month'].dt.strftime("%Y-%m")
 
+    #df['order_month'] = pd.to_datetime(df['ORDER_DATE'], errors='coerce', utc=True).dt.strftime('%Y-%m-%d').month
+    
+    #df['order_month'] = pd.to_datetime(df['ORDER_DATE'], errors='coerce', utc=True).dt.month
+    
+    #df['order_month'] = pd.DatetimeIndex(df['ORDER_DATE']).month
+    
     # Create a dataframe with the sum of the amount for each month
     df_sum = df.groupby('order_month')['PAYMENT_AMOUNT'].sum().reset_index()
 
