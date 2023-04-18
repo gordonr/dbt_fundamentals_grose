@@ -5,7 +5,7 @@
         materialized = 'table',
         tags=['finance'],
         post_hook=[
-            "grant select on {{ this }} to role reporter"
+            "grant select on {{ this }} to role transformer"
         ]
     )
 }}
