@@ -5,9 +5,9 @@ select
     paymentmethod as payment_method,
     status,
 
-    -- amount is stored in cents, convert it to dollars
-    -- amount as payment_amount,
-    {{ cents_to_dollars('amount') }} as payment_amount,
+    -- amount is stored in cents. We need to convert it to dollars
+    amount as payment_amount,  
+    -- { { cents_to_dollars('amount') }} as payment_amount,
     -- amount/100 as payment_amount,
     created as created_at 
 
