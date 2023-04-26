@@ -3,7 +3,7 @@ select
     id as payment_id,
     orderid as order_id,
     paymentmethod as payment_method,
-    status,
+    status as status,
 
     -- amount is stored in cents. We need to convert it to dollars
     amount as payment_amount,  
