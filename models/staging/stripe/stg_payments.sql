@@ -11,4 +11,6 @@ select
     -- amount/100 as payment_amount,
     created as created_at 
 
+    -- let's change this
+
 from {{ source('my_stripe', 'payment') }}
