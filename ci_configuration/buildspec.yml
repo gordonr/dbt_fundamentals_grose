@@ -1,0 +1,44 @@
+version: 0.2
+
+env:
+  variables:
+    DBT_API_KEY: use-yours
+    DBT_ACCOUNT_ID: 28885
+    DBT_PROJECT_ID: 61188
+    DBT_PR_JOB_ID: 44997
+
+phases:
+  install:
+    commands:
+      - echo Entered the install phase...
+      - apt-get update -y
+      - python -m pip install --upgrade pip
+      - pip install requests
+    finally:
+      - echo This always runs even if the update or install command fails 
+  pre_build:
+    commands:
+      - echo Entered the pre_build phase...
+    finally:
+      - echo This always runs even if the login command fails 
+  build:
+    commands:
+      - echo Entered the build phase...
+      - echo Build started on `date`
+      - python -u ./python/run_and_monitor_dbt_cloud_job.py
+    finally:
+      - echo This always runs even if the install command fails
+  post_build:
+    commands:
+      - echo Entered the post_build phase...
+      - echo Build completed on `date`
+
+cache:
+  paths:
+    - '/root/.m2/**/*'
+
+
+CloudShell
+Feedback
+Language
+© 2023, Amazon Web Services, Inc. or its affiliates.

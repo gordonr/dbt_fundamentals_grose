@@ -1,3 +1,10 @@
+-- example of showing which columns are retrieved
+{%- set columns = adapter.get_columns_in_relation(this) -%}
+
+{% for column in columns %}
+  {{ log("Column: " ~ column, info=true) }}
+{% endfor %}
+
 
 select 
     1 as id,
