@@ -23,7 +23,7 @@ payments as (
 )
 
 select 
-    o.customer_id, sum(p.payment_amount) as lifetime_value
+    o.customer_id, sum(p.payment_amount) as lifetime_value, x
 from   
     orders o inner join 
         payments p on o.order_id = p.order_id
