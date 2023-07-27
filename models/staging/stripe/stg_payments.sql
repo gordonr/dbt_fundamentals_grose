@@ -9,8 +9,7 @@ select
     amount as payment_amount,  
     -- { { cents_to_dollars('amount') }} as payment_amount,
     -- amount/100 as payment_amount,
-    created as created_at,
-    1 as new_col
+    created as created_at
 
     -- let's change this
 
