@@ -14,7 +14,6 @@ sources:
             tests:
               - unique
               - not_null
-
       - name: orders
         description: Raw orders data.
         columns:
