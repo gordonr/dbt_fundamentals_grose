@@ -5,7 +5,7 @@ exposures:
   - name: jaffle_customer_dashboard
     type: dashboard
     maturity: high
-    url: https://10ax.online.tableau.com/site/merrycherrydev164064/views/dbtDemo/JaffleCustomerDashboard
+    url: https://10ax.online.tableau.com/t/merrycherrydev164064/views/dbtDemo/JaffleCustomerDashboard
     description: >
       Did someone say "great growth"?
     
