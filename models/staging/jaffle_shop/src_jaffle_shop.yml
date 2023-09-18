@@ -14,6 +14,7 @@ sources:
             tests:
               - unique
               - not_null
+              - dbt_expectations.expect_column_to_exist
       - name: orders
         description: Raw orders data.
         columns:
