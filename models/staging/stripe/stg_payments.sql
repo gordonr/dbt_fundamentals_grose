@@ -4,7 +4,7 @@ select
     orderid as order_id,
     paymentmethod as payment_method,
     status as status,
-
+    
     -- amount is stored in cents. We need to convert it to dollars
     amount as payment_amount,  
     --  { { cents_to_dollars('amount') }} as payment_amount,
