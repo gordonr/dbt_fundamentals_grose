@@ -14,7 +14,7 @@ select
     paymentmethod as payment_method,
     status as status,
     
-    -- amount is  stored in cents. We need to convert it to dollars 
+    -- amount is stored in cents. We need to convert it to dollars 
     -- to get the correct values
     -- comment
     amount as payment_amount,  
