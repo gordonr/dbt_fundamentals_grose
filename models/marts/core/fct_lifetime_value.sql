@@ -6,7 +6,8 @@
         tags=['finance'],
         post_hook=[
             "grant select on {{ this }} to role transformer"
-        ]
+        ],
+        docs={'node_color': 'red'}
     )
 }}
 
