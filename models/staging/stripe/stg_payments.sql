@@ -16,7 +16,7 @@ select
     
     -- amount is stored in cents. We need to convert it to dollars 
     -- to get the correct values
-    -- comment
+    -- comment 
     amount as payment_amount,  
     --{ { cents_to_dollars('amount') }} as payment_amount,
     -- amount/100 as payment_amount,
