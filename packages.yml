@@ -8,5 +8,8 @@ packages:
   - package: calogica/dbt_date
     version: 0.6.0  
   - package: dbt-labs/audit_helper
-    version: 0.6.0    
+    version: 0.6.0 
+  - package: brooklyn-data/dbt_artifacts
+    version: 2.6.2
+           
     

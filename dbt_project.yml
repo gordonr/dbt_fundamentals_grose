@@ -28,8 +28,8 @@ clean-targets:         # directories to be removed by `dbt clean`
 #  - "alter warehouse transforming set warehouse_size=small;"
 
 on-run-end:
-   - "{% for schema in schemas %} grant usage on schema {{ schema }} to reporter; {% endfor %}"
-
+  - "{% for schema in schemas %} grant usage on schema {{ schema }} to reporter; {% endfor %}"
+  - "{{ dbt_artifacts.upload_results(results) }}"
 vars:
   materialization_type: 'view'
   start_date: '1999-01-01'
@@ -42,6 +42,9 @@ vars:
   # {% set last_audit_id = get_last_audit_id() %}
   # select * from {{ ref('some_table') }}
   izzi_model_selector: 'all'
+  dbt_artifacts:
+    dbt_artifacts_schema: dbt_artifacts_grose
+    dbt_artifacts_table: artifacts_grose
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
