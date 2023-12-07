@@ -57,3 +57,9 @@ models:
     # Applies to all files under models/example/
     example:
       materialized: view
+  dbt_artifacts:
+    +schema: artifacts # optional, default is your target schema
+    staging:
+      +schema: artifacts # optional, default is your target schema
+    sources:
+      +schema: artifacts # optional, default is your target schema      
