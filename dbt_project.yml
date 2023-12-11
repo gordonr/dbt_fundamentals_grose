@@ -29,7 +29,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 on-run-end:
   - "{% for schema in schemas %} grant usage on schema {{ schema }} to reporter; {% endfor %}"
-  - "{{ dbt_artifacts.upload_results(results) }}"
+  - "{% if target.name == 'prod' %}{{ dbt_artifacts.upload_results(results) }}{% endif %}"
 vars:
   materialization_type: 'view'
   start_date: '1999-01-01'
