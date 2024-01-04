@@ -13,7 +13,7 @@ select
     orderid as order_id,
     paymentmethod as payment_method,
     status as status,
-    
+    -- change
     -- amount   is stored in cents. We need to convert it to dollars 
     amount as payment_amount,  
 
