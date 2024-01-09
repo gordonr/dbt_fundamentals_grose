@@ -42,9 +42,11 @@ vars:
   # {% set last_audit_id = get_last_audit_id() %}
   # select * from {{ ref('some_table') }}
   izzi_model_selector: 'all'
-  dbt_artifacts:
-    dbt_artifacts_schema: dbt_artifacts_grose
-    dbt_artifacts_table: artifacts_grose
+  #dbt_artifacts:
+  #  dbt_artifacts_schema: dbt_artifacts_grose
+  #  dbt_artifacts_table: artifacts_grose
+
+    
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
@@ -58,8 +60,8 @@ models:
     example:
       materialized: view
   dbt_artifacts:
-    +schema: artifacts # optional, default is your target schema
+    +schema: dbt_grose_prod_artifacts # optional, default is your target schema
     staging:
-      +schema: artifacts # optional, default is your target schema
+      +schema: dbt_grose_prod_artifacts # optional, default is your target schema
     sources:
-      +schema: artifacts # optional, default is your target schema      
+      +schema: dbt_grose_prod_artifacts # optional, default is your target schema      
