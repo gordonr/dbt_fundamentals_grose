@@ -60,8 +60,8 @@ models:
     example:
       materialized: view
   dbt_artifacts:
-    +schema: dbt_grose_prod_artifacts # optional, default is your target schema
+    +schema: artifacts # optional, default is your target schema
     staging:
-      +schema: dbt_grose_prod_artifacts # optional, default is your target schema
+      +schema: artifacts # optional, default is your target schema
     sources:
-      +schema: dbt_grose_prod_artifacts # optional, default is your target schema      
+      +schema: artifacts # optional, default is your target schema      
