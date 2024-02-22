@@ -7,8 +7,8 @@
     )
 }}
 
--- depends_on: {{ ref('izzi_unioned_sources') }}
--- depends_on: {{ ref('stg_izzi_source_data') }}
+-- depends_on: {{ ref('unioned_sources') }}
+-- depends_on: {{ ref('stg_source_data') }}
 
 -- can run using 
 
@@ -34,7 +34,7 @@ select
 from
 
 {% if is_incremental() -%}
-    {{ ref('izzi_unioned_sources') }}
+    {{ ref('unioned_sources') }}
 {%- else  -%}
-    {{ ref('stg_izzi_source_data') }}
+    {{ ref('stg_source_data') }}
 {%- endif -%}
