@@ -6,4 +6,4 @@ select
     sales,
     upsales,
     value
-from {{ ref('izzi_source_data') }}
+from {{ ref('source_data') }}
