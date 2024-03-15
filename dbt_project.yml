@@ -59,6 +59,10 @@ models:
     # Applies to all files under models/example/
     example:
       materialized: view
+    pre-hook: 
+      - "{{ dbt_snow_mask.create_masking_policy('models') }}"
+    post-hook: 
+      - "{{ dbt_snow_mask.apply_masking_policy('models') }}"      
   dbt_artifacts:
     +schema: artifacts # optional, default is your target schema
     staging:
