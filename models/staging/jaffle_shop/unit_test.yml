@@ -1,0 +1,22 @@
+unit_tests:
+  - name: test_order_status_cleanup
+    description: Test my status case / when cleanup logic
+    model: stg_orders
+    given:
+      - input: source('my_jaffle_shop', 'orders')
+        rows: 
+         - {id: 1, status: returned}
+         - {id: 2, status: returned_pending}
+         - {id: 3, status: completed}
+         - {id: 4, status: pending}
+         - {id: 5, status: shipped}
+         - {id: 6, status: placed}
+    expect:
+      rows:
+        - {order_id: 1, status: returned}
+        - {order_id: 2, status: returned}
+        - {order_id: 3, status: completed}
+        - {order_id: 4, status: placed}
+        - {order_id: 5, status: shipped}
+        - {order_id: 6, status: placed}      
+

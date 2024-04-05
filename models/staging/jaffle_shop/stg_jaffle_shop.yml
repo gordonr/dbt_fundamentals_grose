@@ -9,6 +9,9 @@ models:
         tests:
           - unique
           - not_null
+      - name: last_name
+        meta:
+          masking_policy: my_masking_policy          
 
   - name: stg_orders
     description: Staged order data from our jaffle shop app.
