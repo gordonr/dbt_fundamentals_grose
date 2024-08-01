@@ -14,7 +14,10 @@ sources:
             tests:
               - unique
               - not_null
-              - dbt_expectations.expect_column_to_exist              
+              - dbt_expectations.expect_column_to_exist    
+          - name: last_name
+            #meta:
+            #  masking_policy: my_masking_policy                         
       - name: orders
         description: Raw orders data.
         columns:
