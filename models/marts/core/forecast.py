@@ -1,5 +1,6 @@
 #Import required libraries
 import pandas as pd
+import unidecode
 
 import numpy as np
 from prophet import Prophet
@@ -9,7 +10,9 @@ from prophet import Prophet
 
 def model(dbt, session):
 
-    dbt.config(materialized="table", packages=['Prophet', 'pandas', 'numpy'])
+    x = unidecode('kožušček')
+
+    dbt.config(materialized="table", packages=['Prophet', 'pandas', 'numpy', 'unidecode'])
     # dbt.config(materialized="table")
     # DataFrame representing the database table.
     #upstream_model = dbt.ref("fct_orders")
