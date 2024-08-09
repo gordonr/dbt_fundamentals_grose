@@ -5,6 +5,9 @@ models:
     columns:
       - name: payment_id
         description: A unique identifier for each payment transaction.
+        tests:
+          - unique
+          - not_null        
         
       - name: order_id
         description: The ID of the order associated with the payment.
