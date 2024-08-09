@@ -10,7 +10,7 @@
 }}
 
 select
-    -- new comment comment
+    -- new comment comment comment
 
     id as payment_id ,
     orderid as order_id,
