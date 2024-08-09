@@ -10,7 +10,7 @@ renamed as (
 
     select
         id,
-        upper(first_name),
+        first_name,
         last_name
 
     from source
