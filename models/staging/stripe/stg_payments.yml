@@ -1,0 +1,24 @@
+models: 
+  - name: stg_payments
+    description: The purpose of this model is to extract and transform payment data from the Stripe payment source for streamlined financial reporting and analysis.
+    columns:
+      - name: payment_id
+        description: This is a unique identifier for each payment.
+        tests:
+          - unique
+          - not_null        
+
+      - name: order_id
+        description: This represents the unique identifier for the order associated with the payment.
+
+      - name: payment_method
+        description: This indicates the method used for the payment, such as credit card or PayPal.
+
+      - name: status
+        description: This reflects the current status of the payment, such as 'processed', 'failed', or 'pending'.
+
+      - name: payment_amount
+        description: The total amount of the payment in dollars.
+
+      - name: created_at
+        description: The timestamp when the payment was created.
