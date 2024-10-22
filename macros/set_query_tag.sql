@@ -1,4 +1,4 @@
-{% macro set_query_tag_also_old_version() -%}
+{% macro set_query_tag() -%}
 
   {# TODO: extend this for tests once new test PR is merged #}
   {# These are built in dbt Cloud environment variables you can leverage to better understand your runs usage data #}
@@ -42,6 +42,8 @@
               dbt_is_cold_storage_refresh) %}
     #}
 
+    {% set original_query_tag = get_current_query_tag() %}
+
     {% set new_query_tag = '{"dbt_environment_name": "%s", "dbt_job_id": "%s", "dbt_run_id": "%s", "dbt_run_reason": "%s", "dbt_project_name": "%s", "dbt_user_name": "%s", "dbt_model_name": "%s", "dbt_materialization_type": "%s"}'
       |format(dbt_environment_name,
               dbt_job_id,
@@ -52,7 +54,7 @@
               dbt_model_name,
               dbt_materialization_type) %}
 
-    {% set original_query_tag = get_current_query_tag() %}
+
     {{ log("Setting query_tag to '" ~ new_query_tag ~ "'. Will reset to '" ~ original_query_tag ~ "' after materialization.") }}
     {% do run_query("alter session set query_tag = '{}'".format(new_query_tag)) %}
     {{ return(original_query_tag)}}

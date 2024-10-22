@@ -6,7 +6,7 @@
         post_hook=[
             "grant select on {{ this }} to role transformer"
         ],
-        query_tag = 'this model was created by dbt Cloud'
+        query_tag = 'this model {{model.name}} was created by dbt'
     )
 }}
 

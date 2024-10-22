@@ -1,3 +1,12 @@
+{{
+    config(
+        materialized = 'table',
+        post_hook=[
+            "grant select on {{ this }} to role transformer"
+        ]
+    )
+}}
+
 with orders as (
 
     select * from {{ ref('stg_orders') }}
