@@ -5,7 +5,8 @@
         tags=['finance'],
         post_hook=[
             "grant select on {{ this }} to role transformer"
-        ]
+        ],
+        query_tag = 'this model was created by dbt Cloud'
     )
 }}
 
@@ -20,9 +21,9 @@ select
     -- change -
 
     -- amount is stored in cents. We need to convert it to dollars 
-    amount as payment_amount,  
+    -- amount as payment_amount,  
     -- { { cents_to_dollars('amount') }} as payment_amount,
-    -- amount / 100 as payment_amount,
+    amount / 100 as payment_amount,
     created as created_at
 
 from {{ source('my_stripe', 'payment') }}
