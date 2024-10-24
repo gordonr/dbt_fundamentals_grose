@@ -17,7 +17,7 @@ select
     orderid as order_id ,
     paymentmethod as payment_method,
     status as status,
-    1 as col_foo
+    1 as col_foo,
 
     -- change -
 
