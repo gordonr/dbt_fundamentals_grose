@@ -1,0 +1,45 @@
+# -- groups typically defined in separate file
+groups:
+  - name: data_team
+    owner:
+      name: Data Team
+      email: data@acme.com
+
+models:
+  - name: fct_orders
+    latest_version: 1
+    access: public
+    group: data_team
+    description: This model consolidates order and payment information, providing a comprehensive view of each order including its payment status. It is useful for analyzing customer purchasing behavior and payment success rates.
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: order_id
+        data_type: number
+        description: A unique identifier for each order.
+      - name: customer_id
+        data_type: number      
+        description: A unique identifier for each customer who placed the order.
+      - name: order_date
+        data_type: date      
+        description: The date when the order was placed.
+      - name: payment_amount
+        data_type: number      
+        description: The total amount paid for the order, considering only successful payments.
+
+    versions: 
+      - v: 1
+        # -- Columns match above! Nothing more needed
+        config:
+          alias: fct_orders
+        deprecation_date: 2024-10-01 00:00:00.00+00:00        
+      - v: 2
+        columns:
+          # -- v2 Adds in new column name and date type change
+          - name: payment_total 
+            data_type: number
+          - name: order_type
+            data_type: varchar
+          - include: all 
+            exclude: [payment_amount] # -- But removes the old name of payment_total   
