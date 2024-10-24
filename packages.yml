@@ -13,7 +13,7 @@ packages:
     version: 2.6.2
   - package: entechlog/dbt_snow_mask
     version: 0.2.3    
-#  - package: get-select/dbt_snowflake_query_tags
-#    version: 2.5.0    
+  - package: get-select/dbt_snowflake_query_tags
+    version: 2.5.0    
            
     
