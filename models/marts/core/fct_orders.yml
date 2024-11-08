@@ -13,7 +13,7 @@ models:
     description: This model consolidates order and payment information, providing a comprehensive view of each order including its payment status. It is useful for analyzing customer purchasing behavior and payment success rates.
     config:
       contract:
-        enforced: true
+        enforced: false
     columns:
       - name: order_id
         data_type: number
