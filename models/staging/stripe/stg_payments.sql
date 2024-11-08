@@ -19,7 +19,7 @@ select
     status as status,
     1 as col_foo,
 
-    -- change -
+    -- change --
 
     -- amount is stored in cents. We need to convert it to dollars 
     amount as payment_amount,  
